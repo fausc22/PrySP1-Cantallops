@@ -13,7 +13,7 @@ namespace PrySP1_Cantallops
         public string marca { get; set; }
         public decimal precio { get; set; }
 
-        public bool origen { get; set; }
+        public string origen { get; set; }
 
         public List<ClsRespuesto> Listado { get; set; }
     }

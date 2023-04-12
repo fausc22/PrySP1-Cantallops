@@ -24,6 +24,11 @@ namespace PrySP1_Cantallops
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
+
+           
+
+
+
             ClsRespuesto objRepuesto = new ClsRespuesto();
             objRepuesto.codigo = Convert.ToInt32(txtCodigo.Text);
             objRepuesto.nombre = txtNombre.Text;
@@ -32,15 +37,29 @@ namespace PrySP1_Cantallops
 
             if (optImportado.Checked)
             {
-                objRepuesto.origen = false;
+                objRepuesto.origen = "Importado";
             }
-
-            if (optNacional.Checked)
+            else
             {
-                objRepuesto.origen = true;
+                objRepuesto.origen = "Nacional";
             }
 
             MessageBox.Show("Grabacion Exitosa");
+
+        }
+
+        private void txtPrecio_TextChanged(object sender, EventArgs e)
+        {
+            if (txtNombre.Text != null && txtCodigo.Text != null & txtPrecio.Text != null && cmbMarca.SelectedIndex != -1)
+            {
+                btnRegistrar.Enabled = true;
+            }
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            frmConsulta abrirConsulta = new frmConsulta();
+            abrirConsulta.ShowDialog();
 
         }
     }
