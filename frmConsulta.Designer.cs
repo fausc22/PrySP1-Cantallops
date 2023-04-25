@@ -30,8 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConsulta));
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbMarca = new System.Windows.Forms.ComboBox();
             this.mrcOrigen = new System.Windows.Forms.GroupBox();
+            this.optImportado = new System.Windows.Forms.RadioButton();
+            this.optNacional = new System.Windows.Forms.RadioButton();
             this.optAmbos = new System.Windows.Forms.RadioButton();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnConsultar = new System.Windows.Forms.Button();
@@ -41,8 +43,6 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.optImportado = new System.Windows.Forms.RadioButton();
-            this.optNacional = new System.Windows.Forms.RadioButton();
             this.mrcOrigen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInfo)).BeginInit();
             this.SuspendLayout();
@@ -56,13 +56,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Marca";
             // 
-            // comboBox1
+            // cmbMarca
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(51, 21);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(259, 21);
-            this.comboBox1.TabIndex = 1;
+            this.cmbMarca.FormattingEnabled = true;
+            this.cmbMarca.Location = new System.Drawing.Point(51, 21);
+            this.cmbMarca.Name = "cmbMarca";
+            this.cmbMarca.Size = new System.Drawing.Size(259, 21);
+            this.cmbMarca.TabIndex = 1;
             // 
             // mrcOrigen
             // 
@@ -75,6 +75,28 @@
             this.mrcOrigen.TabIndex = 2;
             this.mrcOrigen.TabStop = false;
             this.mrcOrigen.Text = "Origen";
+            // 
+            // optImportado
+            // 
+            this.optImportado.AutoSize = true;
+            this.optImportado.Location = new System.Drawing.Point(106, 20);
+            this.optImportado.Name = "optImportado";
+            this.optImportado.Size = new System.Drawing.Size(72, 17);
+            this.optImportado.TabIndex = 9;
+            this.optImportado.TabStop = true;
+            this.optImportado.Text = "Importado";
+            this.optImportado.UseVisualStyleBackColor = true;
+            // 
+            // optNacional
+            // 
+            this.optNacional.AutoSize = true;
+            this.optNacional.Location = new System.Drawing.Point(6, 20);
+            this.optNacional.Name = "optNacional";
+            this.optNacional.Size = new System.Drawing.Size(67, 17);
+            this.optNacional.TabIndex = 8;
+            this.optNacional.TabStop = true;
+            this.optNacional.Text = "Nacional";
+            this.optNacional.UseVisualStyleBackColor = true;
             // 
             // optAmbos
             // 
@@ -96,6 +118,7 @@
             this.btnSalir.TabIndex = 6;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnConsultar
             // 
@@ -106,6 +129,7 @@
             this.btnConsultar.TabIndex = 5;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = false;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // dgvInfo
             // 
@@ -146,28 +170,6 @@
             this.Column5.HeaderText = "Precio";
             this.Column5.Name = "Column5";
             // 
-            // optImportado
-            // 
-            this.optImportado.AutoSize = true;
-            this.optImportado.Location = new System.Drawing.Point(106, 20);
-            this.optImportado.Name = "optImportado";
-            this.optImportado.Size = new System.Drawing.Size(72, 17);
-            this.optImportado.TabIndex = 9;
-            this.optImportado.TabStop = true;
-            this.optImportado.Text = "Importado";
-            this.optImportado.UseVisualStyleBackColor = true;
-            // 
-            // optNacional
-            // 
-            this.optNacional.AutoSize = true;
-            this.optNacional.Location = new System.Drawing.Point(6, 20);
-            this.optNacional.Name = "optNacional";
-            this.optNacional.Size = new System.Drawing.Size(67, 17);
-            this.optNacional.TabIndex = 8;
-            this.optNacional.TabStop = true;
-            this.optNacional.Text = "Nacional";
-            this.optNacional.UseVisualStyleBackColor = true;
-            // 
             // frmConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -178,12 +180,13 @@
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.mrcOrigen);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbMarca);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmConsulta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AUTOCOR - Consulta";
+            this.Load += new System.EventHandler(this.frmConsulta_Load);
             this.mrcOrigen.ResumeLayout(false);
             this.mrcOrigen.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInfo)).EndInit();
@@ -195,7 +198,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbMarca;
         private System.Windows.Forms.GroupBox mrcOrigen;
         private System.Windows.Forms.RadioButton optAmbos;
         private System.Windows.Forms.Button btnSalir;

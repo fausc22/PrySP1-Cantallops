@@ -23,7 +23,7 @@ namespace PrySP1_Cantallops
         private void Inicializar()
         {
             txtCodigo.Text = "";
-            txtCodigo.Text = "";
+            txtNombre.Text = "";
             txtPrecio.Text = "";
             cmbMarca.Items.Clear();
             cmbMarca.Items.Add("Marca A");
